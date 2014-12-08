@@ -1,0 +1,51 @@
+@import 'bootstrap/less/bootstrap.less';
+@import 'font-awesome/less/font-awesome.less';
+
+@icon-font-path: '/bower_components/bootstrap/fonts/';
+@fa-font-path: '/bower_components/font-awesome/fonts';
+
+/**
+ * nailedIt Color Theme
+ */
+@navbar-default-bg: #123652;
+@navbar-default-link-color: #fff;
+@navbar-default-link-hover-color: #718EA4;
+@navbar-default-link-active-color: #fff;
+@navbar-default-brand-hover-color: @navbar-default-link-hover-color;
+@navbar-default-color: #fff;
+
+@page-header-border-color:#042037;
+
+
+/**
+ * App-wide Styles
+ */
+
+.browsehappy {
+    margin: 0.2em 0;
+    background: #ccc;
+    color: #000;
+    padding: 0.2em 0;
+}
+
+body {
+    padding-top: 70px;
+    padding-bottom: 50px;
+    background-color:#f3f3f3;
+}
+
+.page-header {
+    color:#042037;
+    margin-top:0.8em;
+}
+
+
+// injector
+@import 'account/login/login.less';
+@import 'admin/admin.less';
+@import 'article/article.less';
+@import 'article-filter/article-filter.less';
+@import 'footer/footer.less';
+@import 'modal/modal.less';
+@import 'navbar/navbar.less';
+// endinjector

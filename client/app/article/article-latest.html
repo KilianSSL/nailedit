@@ -1,0 +1,49 @@
+<div ng-include="'components/navbar/navbar.html'"></div>
+<div ng-include="'components/article-filter/article-filter.html'"></div>
+
+<div ng-include="'app/article/article-share.html'" ng-show="isLoggedIn()"></div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-lg-12">
+            <h1 class="page-header">Latest</h1>
+            <div class="article-wrapper--latest">
+                <article role="article" class="article article--latest" ng-repeat="article in articles | filter:getFilter() | orderBy:'-date'" tabindex="10{{$index}}">
+                    <div class="row article__inner" role="button" ng-click="detail(article)">
+                        <div class="col-sm-3 article__image">
+                            <img class="lib-img-show img-responsive" ng-show="article.image !== undefined && article.image !== ''" ng-src="{{getTrustedUrl(article.image)}}">
+                        </div>
+                        <div class="col-sm-1 article__meta--updown">
+                            <span>
+                                <i class="fa fa-arrow-up"></i> {{article.upvotes.length}}
+                            </span>
+                            <span>
+                                <i class="fa fa-comment"></i> {{article.comments.length}}
+                            </span>
+                            <span>
+                                <i class="fa fa-arrow-down"></i> {{article.downvotes.length}}
+                            </span>
+                        </div>
+                        <div class="col-sm-8 article__content">
+                            <div class="article__info col-lg-12">
+                                <div class="article__title">{{article.title}}</div>
+                                <div class="article__description">{{article.description}}</div>
+                            </div>
+                            <div class="article__meta">
+                                <span>
+                                    <i class="fa fa-clock-o"></i> <time datetime="article.date" am-time-ago="article.date"></time>
+                                </span>
+                                <span>
+                                    <i class="fa fa-user"></i> {{article._user.name}}
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+            </div>
+            <div ng-show="articles.length === 0" class="article__engage"><i class="fa fa-pencil"></i> This damn page looks pretty empty. Be the first to share a catchy article.</div>
+        </div>
+    </div>
+</div>
+
+<div ng-include="'components/footer/footer.html'"></div>

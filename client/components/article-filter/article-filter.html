@@ -1,0 +1,10 @@
+<div class="container-fluid article-filter" ng-controller="ArticleFilterCtrl">
+    <ul class="container">
+        <li class="article-filter__item ng-class:{active:isActive('')}"><a ng-href="#" ng-click="setFilter('')">All</a></li>
+        <li class="article-filter__item ng-class:{active:isActive('news')}"><a ng-href="#" ng-click="setFilter('news')">News</a></li>
+        <li class="article-filter__item ng-class:{active:isActive('social')}"><a ng-href="#" ng-click="setFilter('social')">Social</a></li>
+        <li class="article-filter__item ng-class:{active:isActive('gadgets')}"><a ng-href="#" ng-click="setFilter('gadgets')">Gadgets</a></li>
+        <li class="article-filter__item ng-class:{active:isActive('sport')}"><a ng-href="#" ng-click="setFilter('sport')">Sport</a></li>
+        <li class="article-filter__item ng-class:{active:isActive('other')}"><a ng-href="#" ng-click="setFilter('other')">Other</a></li>
+    </ul>
+</div>

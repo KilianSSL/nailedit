@@ -1,0 +1,249 @@
+/**
+ * .block {}
+ * .block__element {}
+ * .block--modifier {}
+ */
+.article__engage {
+  font-size:4.5em;
+  margin-bottom:1em;
+  color:#999;
+  text-shadow: 0 2px 0 #fff;
+}
+
+.article-wrapper--trending {
+  margin-left:-10px;
+  margin-right:-10px;
+}
+
+.article-share {
+  padding-top:20px;
+}
+
+.article {
+  cursor:pointer;
+
+  &:focus,
+  &:active {
+    box-shadow: 0 1px 1px rgba(73, 109, 137, 0.25), 0 2px 1px rgba(73, 109, 137, 0.2), 0 3px 1px rgba(73, 109, 137, 0.1);
+  }
+}
+
+.article--trending {
+  background-color:#fff;
+  border-radius: 4px 4px 4px 4px;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.15), 0 2px 1px rgba(0, 0, 0, 0.1), 0 3px 1px rgba(0, 0, 0, 0.05);
+  width: 280px;
+  margin: 10px;
+  display:none;
+}
+
+.article--trending.loaded {
+  display: block;
+}
+
+.article--latest {
+  position:relative;
+  background-color:#fff;
+  border-radius: 4px 4px 4px 4px;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.15), 0 2px 1px rgba(0, 0, 0, 0.1), 0 3px 1px rgba(0, 0, 0, 0.05);
+  margin-bottom: 20Px;
+}
+
+.article__inner {
+  display: block;
+  position: relative;
+  z-index: 5;
+  border-top: 1px solid #999999;
+  border-radius: 4px 4px 4px 4px;
+}
+
+.article--latest .article__inner {
+  border-top:0;
+}
+
+.article--latest .article__inner {
+  border-top:0;
+}
+
+.article--trending .article__content {
+  padding: 10px;
+}
+
+.article--latest .article__content {
+  padding-left:25px;
+}
+
+@media (min-width: @screen-sm) {
+  .article--latest .article__content {
+    padding-left:0;
+  }
+}
+
+.article--latest .article__info {
+  position: relative;
+  height: 100%;
+  display: block;
+  padding:10px 20px 10px 0;
+
+}
+
+.article__title {
+  margin-top:0;
+  font-size:1.4em;
+  line-height: 1.7em;
+  font-weight:700;
+}
+
+.article__description {
+  font-size: 1.2em;
+  line-height: 1.5em;
+}
+
+.article--trending .article__image {
+  display: block;
+  height: auto;
+  width: 100%;
+}
+
+.article--latest .article__image img {
+  width: 100%;
+  background-color: transparent;
+}
+
+.article__image img {
+  border-radius: 2px 2px 0 0;
+  height: auto;
+  position: relative;
+  width: 100%;
+  z-index: -1;
+}
+
+.article--latest .article__meta {
+  padding:0 0 10px 0;
+}
+
+.article__meta--updown {
+  position: absolute;
+  top:0;
+  left:15px;
+  right:15px;
+  background-color: rgba(0, 0, 0, 0.6);
+  color:#fff;
+  text-align:center;
+}
+
+.article__meta--updown span {
+  font-size: 1.5em;
+  line-height: 1.2em;
+  display:inline-block;
+  padding:5px 3px;
+}
+
+@media (min-width: @screen-sm) {
+  .article__meta--updown {
+    padding:10px 20px 10px 0;
+    position:static;
+    left:auto;
+    right:auto;
+    top:auto;
+    color:#000;
+    background-color:transparent;
+    text-align:left;
+  }
+
+  .article__meta--updown span {
+    font-size: 1.2em;
+    line-height: 1.3em;
+    display:block;
+  }
+}
+
+@media (min-width: @screen-lg) {
+  .article__meta--updown {
+    padding: 10px;
+  }
+
+  .article__meta--updown span {
+    font-size: 1.8em;
+    line-height: 2em;
+    display:block;
+  }
+}
+
+
+.article__meta span,
+.article-comment__meta span {
+  font-size: 1.2em;
+  line-height: 1em;
+  margin-right: 5px;
+}
+
+.article--latest .article__meta span {
+
+}
+
+.article__vote {
+  color:red;
+}
+
+.article-hero {
+  position: relative;
+  margin-top:-20px;
+  width: 100%;
+  padding: 2em 0;
+  overflow: hidden; // Hide overflow to contain the background
+  background-color:#496D89;
+}
+
+.article-hero__background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+.article-hero__title {
+  position: relative;
+  z-index: 2;
+  color: #fff;
+  text-align: center;
+  text-shadow: 0 1px 0 rgba(0,0,0,0.5);
+}
+
+.article-hero__title--subtitle {
+  font-size:1.4em;
+}
+
+.article-hero__title--subtitle a {
+  color:#fff;
+}
+
+.article-bar {
+  background-color:#fff;
+  border-bottom: 1px solid #e1e8ed;
+}
+
+.article-bar__cell {
+  padding:8px 3px;
+  font-size:1.5em;
+}
+
+.article-comment {
+  position:relative;
+  background-color:#fff;
+  border-radius: 4px 4px 4px 4px;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.15), 0 2px 1px rgba(0, 0, 0, 0.1), 0 3px 1px rgba(0, 0, 0, 0.05);
+  margin-bottom: 20Px;
+}
+
+.article-comment .article-comment__text,
+.article-comment .article-comment__meta {
+  padding:10px;
+}
+
+.article-comment .article-comment__meta .fa-reply {
+  cursor:pointer;
+}
+

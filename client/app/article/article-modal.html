@@ -1,0 +1,43 @@
+<form role="form" name="articleForm" ng-submit="post()">
+<div class="modal-header">
+  <h4 class="modal-title">Tell us more about your article</h4>
+</div>
+<div class="modal-body">
+    <div class="form-group">
+      <label for="article-modal-title" class="label sr-only">Title (required)</label>
+      <input id="article-modal-title" name="title" type="text" ng-model="newarticle.title" placeholder="Title" class="form-control" required="" />
+      <p class="help-block" ng-show="form.title.$error.required">Let me know what title you would like to use.</p>
+    </div>
+    <div class="form-group" ng-show="newarticle.url != ''">
+      <label for="article-modal-url" class="label sr-only">URL</label>
+      <input id="article-modal-url" name="url" type="text" ng-model="newarticle.url" placeholder="URL" class="form-control" readonly />
+    </div>
+    <div class="form-group">
+      <label for="article-modal-description" class="label sr-only">Description (required)</label>
+      <textarea id="article-modal-description" name="description" type="text" ng-model="newarticle.description" placeholder="Description" class="form-control" required=""></textarea>
+      <p class="help-block" ng-show="form.description.$error.required">Describe your article.</p>
+    </div>
+    <div class="form-group">
+      <label for="article-modal-category" class="label sr-only">Category (required)</label>
+      <select id="article-modal-category" name="category" ng-model="newarticle.category" placeholder="Category" class="form-control" required="">
+        <option value="">Category</option>
+        <option value="news">News</option>
+        <option value="social">Social</option>
+        <option value="gadgets">Social</option>
+        <option value="sport">Sport</option>
+        <option value="other">Other</option>
+      </select>
+      <p class="help-block" ng-show="form.category.$error.required">Define a category.</p>
+    </div>
+    <div class="form-group">
+      <!-- todo http://www.abeautifulsite.net/whipping-file-inputs-into-shape-with-bootstrap-3/ -->
+      <img ng-show="newarticle.image != ''" ng-src="{{image}}" class="img-responsive img-thumbnail" />
+      <label for="article-modal-image" class="label sr-only">Upload image (required)</label>
+      <input id="article-modal-image" type="file" ng-file-select="onFileSelect($files)" multiple accept="image/*">
+    </div>
+</div>
+<div class="modal-footer">
+  <button type="reset" class="btn btn-default" ng-click="cancel()" class="btn">Cancel</button>
+  <button type="submit" class="btn btn-primary" ng-click="post()" class="btn">Post</button>
+</div>
+</form>

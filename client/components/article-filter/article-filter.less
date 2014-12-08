@@ -1,0 +1,32 @@
+.article-filter {
+  margin-top:-20px;
+  background-color:#fff;
+  border-bottom: 1px solid #e1e8ed;
+  text-align: center;
+}
+
+.article-filter>ul.container {
+  margin-bottom:0;
+}
+
+.article-filter__item {
+  display: inline-block;
+  list-style:none;
+}
+
+.article-filter__item a {
+  display:block;
+  margin-bottom:-1px;
+  padding:12px 15px 10px;
+  color:#123652;
+}
+
+.article-filter__item.active a {
+  font-weight:700;
+}
+
+@media (min-width: @screen-xs) {
+  .article-filter__item.active a {
+    background: url("../assets/images/filter-active.png") no-repeat scroll center bottom transparent;
+  }
+}

@@ -1,0 +1,47 @@
+<div ng-include="'components/navbar/navbar.html'"></div>
+<div ng-include="'components/article-filter/article-filter.html'"></div>
+
+<div ng-include="'app/article/article-share.html'" ng-show="isLoggedIn()"></div>
+
+<div class="container-fluid">
+    <div class="row-fluid">
+        <div class="col-lg-12">
+            <h1 class="page-header">Trending</h1>
+            <div class="article-wrapper article-wrapper--trending" masonry>
+                <article role="article" class="article article--trending masonry-brick" ng-repeat="article in articles | filter:getFilter() | orderBy:'-upvotes' | limitTo:'10'" tabindex="10{{$index}}">
+                    <div class="article__inner" role="button" ng-click="detail(article)">
+                        <div class="article__image" ng-show="article.image !== undefined && article.image !== ''">
+                            <img  ng-src="{{getTrustedUrl(article.image)}}" />
+                        </div>
+                        <div class="article__content">
+                            <div class="article__info">
+                                <h2 class="article__title">{{article.title}}</h2>
+                                <p class="article__description">{{article.description}}</p>
+                            </div>
+                            <div class="article__meta">
+                                <span>
+                                    <i class="fa fa-clock-o"></i> <time datetime="{{article.date}}">{{article.date | date}}</time>
+                                </span>
+                                <span>
+                                    <i class="fa fa-user"></i> {{article._user.name}}
+                                </span>
+                                <span>
+                                    <i class="fa fa-comment"></i> {{article.comments.length}}
+                                </span>
+                                <span>
+                                    <i class="fa fa-arrow-up"></i> {{article.upvotes.length}}
+                                </span>
+                                <span>
+                                    <i class="fa fa-arrow-down"></i> {{article.downvotes.length}}
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+            </div>
+            <div ng-show="articles.length === 0" class="article__engage"><i class="fa fa-pencil"></i> Oh wow? You are navigating around on an empty page.<br />Better share a catchy article now!</div>
+        </div>
+    </div>
+</div>
+
+<div ng-include="'components/footer/footer.html'"></div>

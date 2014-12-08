@@ -1,0 +1,82 @@
+<div ng-include="'components/navbar/navbar.html'"></div>
+<!-- Article hero-unit -->
+<div class="hero-unit article-hero">
+    <canvas-blur ng-if="article.image !== ''" class="article-hero__background" src="{{image}}" width="2560" height="250"></canvas-blur>
+    <h1 class="article-hero__title">{{article.title}}</h1>
+    <h2 class="article-hero__title article-hero__title--subtitle" ng-show="article.url !== 'http://'"><a ng-href="{{article.url}}" target="_blank"><i class="fa fa-link"></i> {{article.url}}</a></h2>
+    <h2 class="article-hero__title article-hero__title--subtitle"><i class="fa fa-clock-o"></i> <time datetime="article.date" am-time-ago="article.date"></time></h2>
+</div>
+<!-- Article Bar -->
+<div class="container-fluid article-bar">
+    <div class="container">
+        <div class="col-sm-3 article-bar__cell">
+            <i class="fa fa-user"></i> {{article._user.name}}</div>
+        <div class="col-sm-3 article-bar__cell">
+            <i class="fa fa-comment"></i> <ng-pluralize count="article.comments.length" when="{'0':'No comments','1':'1 comment','other':'{} comments'}"></ng-pluralize>
+        </div>
+        <div class="col-sm-3 article-bar__cell">
+            <i class="fa fa-arrow-up"></i> <ng-pluralize count="article.upvotes.length" when="{'1':'1 upvote','other':'{} upvotes'}"></ng-pluralize>
+        </div>
+        <div class="col-sm-3 article-bar__cell">
+            <i class="fa fa-arrow-down"></i> <ng-pluralize count="article.downvotes.length" when="{'1':'1 downvote','other':'{} downvotes'}"></ng-pluralize>
+        </div>
+    </div>
+</div>
+<!-- Article content -->
+<div class="container">
+    <div class="row">
+        <div class="col-lg-12">
+            <h1 class="page-header">
+                {{article.title}}
+                <span class="pull-right">
+                    <!--<button ng-show="isOwnerOf(article) || isAdmin()" ng-click="deleteArticle(article)" type="button" class="btn btn-primary"><i class="fa fa-edit"></i></button>-->
+                    <button ng-show="isOwnerOf(article) || isAdmin()" ng-click="deleteArticle(article)" type="button" class="btn btn-primary"><i class="fa fa-trash"></i></button>
+                </span>
+            </h1>
+            <p>{{article.description}}</p>
+            <button ng-click="upVoteArticle(article)" ng-disabled="!isLoggedIn()" class="btn btn-success"><i class="fa fa-arrow-up"></i> I likey</button>
+            <button ng-click="downVoteArticle(article)" ng-disabled="!isLoggedIn()" class="btn btn-danger"><i class="fa fa-arrow-down"></i> I no likey</button>
+        </div>
+    </div>
+</div>
+<!-- Article comments -->
+<div class="container">
+    <div class="row">
+        <h2 class="col-lg-12">Discuss</h2>
+        <div class="col-lg-12" ng-show="isLoggedIn()">
+            <form name="commentForm" class="comment-form">
+                <label class="sr-only">Type to comment</label>
+                <p class="input-group">
+                    <input type="text" class="form-control input-lg" placeholder="Type to comment" ng-model="newcomment" required="true" focus-me="newcommentFocus">
+                    <span class="input-group-btn">
+                        <button type="submit" class="btn btn-primary btn-lg" ng-click="addComment(article)">Comment</button>
+                    </span>
+                </p>
+            </form>
+        </div>
+        <div class="col-lg-12">
+            <div class="article-comment" ng-repeat="comment in article.comments | orderBy:'-date'">
+                <div class="article-comment__text" role="button">{{comment.text}}</div>
+                <div class="article-comment__meta">
+                    <span>
+                        <i class="fa fa-clock-o"></i> <time datetime="comment.date" am-time-ago="comment.date"></time>
+                    </span>
+                    <span>
+                        <i class="fa fa-user"></i> {{comment._user.name}}
+                    </span>
+                    <div class="pull-right">
+                        <!--<span ng-show="isOwnerOf(comment)">
+                            <i class="fa fa-trash"></i> Delete
+                        </span>-->
+                        <span ng-click="reply(comment)">
+                            <i class="fa fa-reply"></i> Reply
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div ng-show="article.comments.length === 0" class="well">Be the first to comment on this article. <a ng-href="/login" ng-hide="isLoggedIn()">Login</a></div>
+        </div>
+    </div>
+</div>
+
+<div ng-include="'components/footer/footer.html'"></div>

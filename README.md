@@ -13,6 +13,13 @@
 # Run with grunt
 * grunt serve
 
+# Nice Functions
+* Masonry dynamic layout for "trending" posts
+* MomentsJS for "posted about a minute ago" kind of things
+* NodeJS home-made fetcher to get <title> and og:image or first <img> on a page
+* Fileupload via angular / node
+* CanvasBlur directive to blur an image clientside
+
 # Known flaws ;-)
 * improve content fetcher
 * blur image server side and provide a rendered version rather than to do it with canvas clientside

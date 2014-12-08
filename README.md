@@ -19,3 +19,6 @@
 * up / downvote mechano on the server-side is pretty bah :(
 * reasonable unit tests are missing :-(
 * masonry dynamic layout is shaking around when new entries are being commented / up and downvoted
+
+# Presentation
+* Powerpoint [pptx](./doc/nailedit-praesentation.pptx) [pdf](./doc/nailedit-praesentation.pdf)
